@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -29,11 +30,62 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
+      <div class="row card">
+        <div class="col-1 card-body">8 am</div>
+        <input type="text" id="todo" name="entry1" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body">9 am</div>
+        <input type="text" id="todo" name="entry2" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body">10 am</div>
+        <input type="text" id="todo" name="entry3" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body">11 am</div>
+        <input type="text" id="todo" name="entry4" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body">12 pm</div>
+        <input type="text" id="todo" name="entry5" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body">1 pm</div>
+        <input type="text" id="todo" name="entry6" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body">2 pm</div>
+        <input type="text" id="todo" name="entry7" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body time-slot">3 pm</div>
+        <input type="text" id="todo" name="entry8" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body">4 pm</div>
+        <input type="text" id="todo" name="entry9" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
+      <div class="row card">
+        <div class="col-1 card-body">5 pm</div>
+        <input type="text" id="todo" name="entry10" class="col-10 time-block card-body">
+        <button class="col-1 saveBtn card-body"><span class="ui-icon ui-icon-disk"></span></button>
+      </div>
       <!-- Timeblocks go here -->
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
