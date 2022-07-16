@@ -14,7 +14,6 @@ setInterval(updateDay, 1000);
 
 // localStorage.setItem("entry", JSON.stringify(entry));
 
-
 // item two: past / present / future styling applied to rows or maybe just input based on time
 /* 
 If textContent of time-slot when converted to moment() format is less than current moment(), 
@@ -25,25 +24,34 @@ apply .past styling
 
 // may need to add array for rows to loop through as ids
 
+$('.row').each(function () {
 
-$('.row').each(function() {
+    let time = $(this).children('.time-slot').text();
+    let workBlock = $(this).children('.time-block');
+    let now = moment();
 
-    let timeSlot = $('.time-slot').text();
-    let time = moment(timeSlot, 'h a');
+    if (now.isAfter(moment(time, 'h a'))) {
+        $(workBlock).addClass("past");
+        $(workBlock).removeClass("present");
+        $(workBlock).removeClass("future");
 
-    if (moment(time, 'h a').isBefore(moment())) {
-        $(this).children('input').addClass("past");
-        $(this).children('input').removeClass("present");
-        $(this).children('input').removeClass("future");
+        console.log("past");
 
-    } else if (moment(time, 'h a').isAfter(moment())) {
-        $(this).children('input').addClass("future");
-        $(this).children('input').removeClass("present");
-        $(this).children('input').removeClass("past");
+    } else if (moment(time, 'h a').isSame) {
+        $(workBlock).addClass("present");
+        $(workBlock).removeClass("past");
+        $(workBlock).removeClass("future");
+
+        console.log("present");
 
     } else {
-        $(this).children('input').addClass("present");
-        $(this).children('input').removeClass("past");
-        $(this).children('input').removeClass("future");
+        $(workBlock).addClass("future");
+        $(workBlock).removeClass("present");
+        $(workBlock).removeClass("past");
+
+        console.log("future");
+
     }
 });
+
+// saving from last else: if (now.isBefore(moment(time, 'h a')))
