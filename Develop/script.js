@@ -26,32 +26,31 @@ apply .past styling
 
 $('.row').each(function () {
 
-    let time = $(this).children('.time-slot').text();
+    let time = $(this).children('.time-slot').text().trim();
     let workBlock = $(this).children('.time-block');
     let now = moment();
 
-    if (now.isAfter(moment(time, 'h a'))) {
+    $(workBlock).removeClass(".present .past .future");
+
+    if (now > (moment(time, 'h a'))) {
         $(workBlock).addClass("past");
         $(workBlock).removeClass("present");
         $(workBlock).removeClass("future");
 
         console.log("past");
 
-    } else if (moment(time, 'h a').isSame) {
-        $(workBlock).addClass("present");
-        $(workBlock).removeClass("past");
-        $(workBlock).removeClass("future");
-
-        console.log("present");
-
-    } else {
+    } else if (moment(time, 'h a') > now) {
         $(workBlock).addClass("future");
         $(workBlock).removeClass("present");
         $(workBlock).removeClass("past");
 
         console.log("future");
 
+    } else {
+        $(workBlock).addClass("present");
+        $(workBlock).removeClass("past");
+        $(workBlock).removeClass("future");
+
+        console.log("present");
     }
 });
-
-// saving from last else: if (now.isBefore(moment(time, 'h a')))
