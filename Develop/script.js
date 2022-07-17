@@ -10,34 +10,22 @@ function updateDay() {
 };
 setInterval(updateDay, 1000);
 
-// item one: savebtn saves content of row to localStorage to be reconstituted on reload
-
-// localStorage.setItem("entry", JSON.stringify(entry));
-
-// item two: past / present / future styling applied to rows or maybe just input based on time
-/* 
-If textContent of time-slot when converted to moment() format is less than current moment(), 
-apply .past styling
-*/
-
-// make sure to only addClass to input child of current row element
-
-// may need to add array for rows to loop through as ids
-
+// Changes colors of rows based on current time
 $('.row').each(function () {
 
     let time = $(this).children('.time-slot').text().trim();
     let workBlock = $(this).children('.time-block');
     let now = moment();
 
-    $(workBlock).removeClass(".present .past .future");
+    $(".hour").removeClass(".present .past .future");
 
-    if (now > (moment(time, 'h a'))) {
-        $(workBlock).addClass("past");
-        $(workBlock).removeClass("present");
+
+    if ((moment(time, 'h a')).isSame(now, 'hour')) {
+        $(workBlock).addClass("present");
+        $(workBlock).removeClass("past");
         $(workBlock).removeClass("future");
 
-        console.log("past");
+        console.log("present");
 
     } else if (moment(time, 'h a') > now) {
         $(workBlock).addClass("future");
@@ -46,11 +34,15 @@ $('.row').each(function () {
 
         console.log("future");
 
-    } else {
-        $(workBlock).addClass("present");
-        $(workBlock).removeClass("past");
+    } else if (now > (moment(time, 'h a'))) {
+        $(workBlock).addClass("past");
+        $(workBlock).removeClass("present");
         $(workBlock).removeClass("future");
 
-        console.log("present");
+        console.log("past");
     }
 });
+
+// Last item: savebtn saves content of row to localStorage to be reconstituted on reload
+
+// localStorage.setItem("entry", JSON.stringify(entry));
