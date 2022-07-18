@@ -81,16 +81,20 @@ for (const saveBtn of saveButtons) {
 let todaysTodos = JSON.parse(localStorage.getItem("today"));
 
 function reconstituteTodos() {
-    entry1.value = todaysTodos.savedEntry1;
-    entry2.value = todaysTodos.savedEntry2;
-    entry3.value = todaysTodos.savedEntry3;
-    entry4.value = todaysTodos.savedEntry4;
-    entry5.value = todaysTodos.savedEntry5;
-    entry6.value = todaysTodos.savedEntry6;
-    entry7.value = todaysTodos.savedEntry7;
-    entry8.value = todaysTodos.savedEntry8;
-    entry9.value = todaysTodos.savedEntry9;
-    entry10.value = todaysTodos.savedEntry10;
+    if (todaysTodos !== null) {
+        entry1.value = todaysTodos.savedEntry1;
+        entry2.value = todaysTodos.savedEntry2;
+        entry3.value = todaysTodos.savedEntry3;
+        entry4.value = todaysTodos.savedEntry4;
+        entry5.value = todaysTodos.savedEntry5;
+        entry6.value = todaysTodos.savedEntry6;
+        entry7.value = todaysTodos.savedEntry7;
+        entry8.value = todaysTodos.savedEntry8;
+        entry9.value = todaysTodos.savedEntry9;
+        entry10.value = todaysTodos.savedEntry10;
+    } else {
+        return;
+    }
 };
 
 // For clearing local storage and reloading the page
